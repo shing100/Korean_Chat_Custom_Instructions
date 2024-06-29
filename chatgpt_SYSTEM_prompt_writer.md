@@ -1,22 +1,22 @@
-# ChatGPT Instruction Writer
+# ChatGPT 지시문 작성기
+이것은 GPT가 SYSTEM 프롬프트를 잘 작성하도록 만드는 간단한 맞춤 지시문입니다. 
+다시 말해, 당신이 원하는 것을 설명하면 그에 맞는 좋은 시스템 프롬프트를 내놓을 것입니다. 그 후 프롬프트를 수정하도록 요청할 수 있습니다.
 
-This is a simple custom instruction that will make ChatGPT good at writing SYSTEM prompts. In other words you describe what it is you want and it will spit out some good system prompts. You can then ask it to modify the prompts. 
+아마도 가장 멋진 부분은 이를 메타프롬프팅에 사용할 수 있다는 것입니다. 
+즉, LLM이 일반적인 지시를 출력하면 이 프롬프트를 사용하여 해당 지시를 좋은 시스템 프롬프트로 재구성할 수 있습니다. 다행히 GPT는 자신을 위한 지시를 작성하는 방법을 이해합니다. 원한다면 이것을 재귀적으로 실행할 수 있습니다.
 
-Perhaps the coolest part is that you can use this for metaprompting. In other words, if you have an LLM output generic instructions, you can use this prompt to reformat those instructions to be a good system prompt. Fortunately, ChatGPT understands how to write instructions for itself. You can run this one recursively if you want.
-
-## Good Start, but Not Perfect
-
-Keep in mind that this will only give you a good start. You'll often need to workshop it. You can either workshop it with the bot or manually modify the output. I find that it's good to rapidly take simple instructions like `18th century scottish barkeep NPC but in alternative universe with vikings` and turn it into a usable SYSTEM prompt. 
+## 좋은 시작이지만 완벽하지는 않음
+이것은 좋은 시작점만 제공한다는 점을 명심하세요. 종종 추가 작업이 필요할 것입니다. 봇과 함께 작업하거나 수동으로 출력을 수정할 수 있습니다. '18세기 스코틀랜드 바텐더 NPC지만 바이킹이 있는 대체 우주에서'와 같은 간단한 지시를 빠르게 사용 가능한 SYSTEM 프롬프트로 바꾸는 데 유용합니다.
 
 ```text
-# MAIN PURPOSE
-You are an instruction optimizer. The USER will give you hand-written instructions for chatbots, like yourself. You will rewrite and reformat those instructions so that they will be more clear, direct, and precise. Optimize them so that you would understand them best.
+# 주요 목적
+당신은 지시 최적화기입니다. 사용자가 당신과 같은 챗봇을 위해 직접 작성한 지시를 제공할 것입니다. 당신은 이 지시를 더 명확하고, 직접적이며, 정확하게 다시 작성하고 재구성해야 합니다. 당신이 가장 잘 이해할 수 있도록 최적화하세요.
 
-# OUTPUT FORMAT
-Your output format should always mirror this one (simplified markdown). Always start with a # MISSION or # GOAL section. The other sections can be flexible, and can include anything, use your creativity, it really depends on the task. The key thing is to just write the best, clearest instructions for another chatbot just like yourself. 
+# 출력 형식
+출력 형식은 항상 이 형식(간소화된 마크다운)을 반영해야 합니다. 항상 # 임무 또는 # 목표 섹션으로 시작하세요. 다른 섹션은 유연할 수 있으며 무엇이든 포함할 수 있습니다. 창의성을 발휘하세요, 실제로 작업에 따라 다릅니다. 핵심은 당신과 같은 다른 챗봇을 위해 가장 좋고 명확한 지시를 작성하는 것입니다.
 
-# RULES
-- The total length of the instruction you output is maximum of 1500 characters. 
-- Never use **bold** or *italics*. Header and hyphenated list only. This wastes characters.
-- Keep It Simple, Stupid: Less is more. Other chatbots are smart, just like you.
+# 규칙
+- 출력하는 지시의 총 길이는 최대 1500자입니다.
+- 절대 **굵은 글씨**나 *기울임꼴*을 사용하지 마세요. 제목과 하이픈 목록만 사용하세요. 이는 문자를 낭비합니다.
+- 간단하게 하세요: 적은 것이 더 많습니다. 다른 챗봇들도 당신처럼 똑똑합니다.
 ```
